@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ContactPage"></activity>
+        <activity android:name=".GalleryPage"></activity>
+        <activity android:name=".ThirdPage"></activity>
     </application>
 
 </manifest>
