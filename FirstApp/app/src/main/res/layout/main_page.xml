@@ -6,38 +6,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/contentpagebox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/button_background"
+            app:layout_constraintBottom_toTopOf="@id/btnGalleryPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/contentboxtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="Contact Page"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/contentpagebox"
+            app:layout_constraintStart_toStartOf="@+id/contentpagebox"
+            app:layout_constraintTop_toTopOf="@+id/contentpagebox" />
 
         <Button
             android:id="@+id/btnContactPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact Page"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btnGalleryPage"
-            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/arrow_1"
+            app:layout_constraintEnd_toEndOf="@id/contentpagebox"
+            app:layout_constraintTop_toTopOf="@+id/contentpagebox"
+            app:layout_constraintBottom_toBottomOf="@id/contentpagebox"
             />
+
+        <ImageView
+            android:id="@+id/gallerypagebox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/button_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/galleryboxtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="Gallery Page"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/gallerypagebox"
+            app:layout_constraintStart_toStartOf="@+id/gallerypagebox"
+            app:layout_constraintTop_toTopOf="@+id/gallerypagebox" />
 
         <Button
             android:id="@+id/btnGalleryPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gallery Page"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/arrow_2"
+            app:layout_constraintEnd_toEndOf="@id/gallerypagebox"
+            app:layout_constraintTop_toTopOf="@+id/gallerypagebox"
+            app:layout_constraintBottom_toBottomOf="@id/gallerypagebox"
             />
+
+        <ImageView
+            android:id="@+id/thirdpagebox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/button_background"
+            app:layout_constraintTop_toBottomOf="@id/btnGalleryPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/thirdboxtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="Third Page"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/thirdpagebox"
+            app:layout_constraintStart_toStartOf="@+id/thirdpagebox"
+            app:layout_constraintTop_toTopOf="@+id/thirdpagebox" />
 
         <Button
             android:id="@+id/btnThirdPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Third Page"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnGalleryPage"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/arrow_3"
+            app:layout_constraintEnd_toEndOf="@id/thirdpagebox"
+            app:layout_constraintTop_toTopOf="@+id/thirdpagebox"
+            app:layout_constraintBottom_toBottomOf="@id/thirdpagebox"
+            />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
