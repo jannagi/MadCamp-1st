@@ -33,5 +33,6 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToPage(cls: Class<*>) {
         val intent = Intent(this, cls)
         startActivity(intent)
+        finish()
     }
 }
