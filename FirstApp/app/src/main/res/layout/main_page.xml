@@ -1,0 +1,43 @@
+<!-- res/layout/main_page.xml -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnContactPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnGalleryPage"
+            android:layout_marginBottom="70dp"
+            />
+
+        <Button
+            android:id="@+id/btnGalleryPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gallery Page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnThirdPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Third Page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnGalleryPage"
+            android:layout_marginTop="70dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
