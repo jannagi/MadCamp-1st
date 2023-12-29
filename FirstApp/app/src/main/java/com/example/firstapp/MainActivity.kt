@@ -18,28 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.contactFragment,
-                R.id.galleryFragment,
-                R.id.thirdFragment
-            )
-        )
 
-        binding.bottomNav.setupWithNavController(navController)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // 각 버튼에 대한 클릭 이벤트 처리
-        binding.btnContactPage.setOnClickListener {
-            navController.navigate(R.id.contactFragment)
+        findViewById<Button>(R.id.btnContactPage).setOnClickListener {
+            navController.navigate(R.id.action_main_to_contact)
         }
 
-        binding.buttonGallery.setOnClickListener {
-            navController.navigate(R.id.galleryFragment)
+        findViewById<Button>(R.id.btnGalleryPage).setOnClickListener {
+            navController.navigate(R.id.action_main_to_gallery)
         }
 
-        binding.buttonThird.setOnClickListener {
-            navController.navigate(R.id.thirdFragment)
+        findViewById<Button>(R.id.btnThirdPage).setOnClickListener {
+            navController.navigate(R.id.action_main_to_third)
         }
     }
 
