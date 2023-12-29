@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.GridView
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class GalleryPage : AppCompatActivity() {
@@ -11,7 +12,7 @@ class GalleryPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.gallery_page)
 
-        val backButton = findViewById<Button>(R.id.icon_back)
+        val backButton = findViewById<ImageButton>(R.id.icon_back)
         backButton.setOnClickListener {
             navigateToPage(MainActivity::class.java)
         }

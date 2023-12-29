@@ -32,12 +32,15 @@
             app:layout_constraintStart_toStartOf="@+id/contentpagebox"
             app:layout_constraintTop_toTopOf="@+id/contentpagebox" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnContactPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@drawable/arrow_1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/contentpagebox"
             app:layout_constraintTop_toTopOf="@+id/contentpagebox"
             app:layout_constraintBottom_toBottomOf="@id/contentpagebox"
@@ -67,12 +70,15 @@
             app:layout_constraintStart_toStartOf="@+id/gallerypagebox"
             app:layout_constraintTop_toTopOf="@+id/gallerypagebox" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnGalleryPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@drawable/arrow_2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/gallerypagebox"
             app:layout_constraintTop_toTopOf="@+id/gallerypagebox"
             app:layout_constraintBottom_toBottomOf="@id/gallerypagebox"
@@ -101,12 +107,15 @@
             app:layout_constraintStart_toStartOf="@+id/thirdpagebox"
             app:layout_constraintTop_toTopOf="@+id/thirdpagebox" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnThirdPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@drawable/arrow_3"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/thirdpagebox"
             app:layout_constraintTop_toTopOf="@+id/thirdpagebox"
             app:layout_constraintBottom_toBottomOf="@id/thirdpagebox"

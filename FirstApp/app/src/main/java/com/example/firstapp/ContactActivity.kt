@@ -1,22 +1,24 @@
 package com.example.firstapp
 
+import ContactListAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
 
-class ContactActivity : AppCompatActivity() {
+class ContactActivity : AppCompatActivity(), ContactListAdapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
-        val backButton = findViewById<Button>(R.id.icon_back)
+        val backButton = findViewById<ImageButton>(R.id.icon_back)
         backButton.setOnClickListener {
             navigateToPage(MainActivity::class.java)
         }
@@ -40,6 +42,9 @@ class ContactActivity : AppCompatActivity() {
             LayoutInflater.from(this),
             this
         )
+
+        adapter.onItemClickListener = this
+
         findViewById<RecyclerView>(R.id.ContactList).adapter = adapter
 
     }
@@ -49,41 +54,19 @@ class ContactActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-}
 
-class ContactListAdapter(
-    val contactItemList: ArrayList<ContactItem>,
-    val inflater: LayoutInflater,
-    val activity: ContactActivity
-) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val contactName: TextView
-        val contactOrganization: TextView
-        val contactPhone: TextView
-        val contactEmail: TextView
-
-        init {
-            contactName = itemView.findViewById(R.id.person_name)
-            contactOrganization = itemView.findViewById(R.id.person_institute)
-            contactPhone = itemView.findViewById(R.id.person_phone)
-            contactEmail = itemView.findViewById(R.id.person_email)
-        }
+    override fun onItemClick(contactItem: ContactItem) {
+        // Handle item click, e.g., show contact details
+        showContactDetails(contactItem)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = inflater.inflate(R.layout.contact_list_item, parent, false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.contactName.setText(contactItemList[position].Name)
-        holder.contactOrganization.setText(contactItemList[position].Organization)
-        holder.contactPhone.setText(contactItemList[position].Phone)
-        holder.contactEmail.setText(contactItemList[position].Email)
-    }
-
-    override fun getItemCount(): Int {
-        return contactItemList.size
+    private fun showContactDetails(contactItem: ContactItem) {
+        val intent = Intent(this, CondetailActivity::class.java)
+        intent.putExtra("name", contactItem.Name)
+        intent.putExtra("organization", contactItem.Organization)
+        intent.putExtra("phone", contactItem.Phone)
+        intent.putExtra("email", contactItem.Email)
+        startActivity(intent)
     }
 }
+

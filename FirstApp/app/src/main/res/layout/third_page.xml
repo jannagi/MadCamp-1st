@@ -13,15 +13,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/icon_back"
         android:contentDescription="뒤로가기"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/icon_back"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_back"
+        android:background="@drawable/bg_white_ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

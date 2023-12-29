@@ -3,6 +3,7 @@ package com.example.firstapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class ThirdPage : AppCompatActivity() {
@@ -10,7 +11,7 @@ class ThirdPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.third_page)
 
-    val backButton = findViewById<Button>(R.id.icon_back)
+    val backButton = findViewById<ImageButton>(R.id.icon_back)
     backButton.setOnClickListener {
             navigateToPage(MainActivity::class.java)
         }

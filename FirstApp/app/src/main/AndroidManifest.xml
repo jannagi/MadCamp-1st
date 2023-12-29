@@ -26,6 +26,7 @@
         <activity android:name=".ContactActivity"></activity>
         <activity android:name=".GalleryPage"></activity>
         <activity android:name=".ThirdPage"></activity>
+        <activity android:name=".CondetailActivity"></activity>
     </application>
 
 </manifest>
