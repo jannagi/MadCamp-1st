@@ -10,25 +10,26 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.firstapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.main_page)
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        val contactButton = findViewById<Button>(R.id.btnContactPage)
+        val galleryButton = findViewById<Button>(R.id.btnGalleryPage)
+        var thirdButton = findViewById<Button>(R.id.btnThirdPage)
 
-        findViewById<Button>(R.id.btnContactPage).setOnClickListener {
-            navController.navigate(R.id.action_main_to_contact)
+
+        // 각 버튼에 대한 클릭 이벤트 처리
+        contactButton.setOnClickListener {
+            navigateToPage(ContactPage::class.java)
         }
 
-        findViewById<Button>(R.id.btnGalleryPage).setOnClickListener {
-            navController.navigate(R.id.action_main_to_gallery)
+        galleryButton.setOnClickListener {
+            navigateToPage(GalleryPage::class.java)
         }
 
-        findViewById<Button>(R.id.btnThirdPage).setOnClickListener {
-            navController.navigate(R.id.action_main_to_third)
+        thirdButton.setOnClickListener {
+            navigateToPage(ThirdPage::class.java)
         }
     }
 

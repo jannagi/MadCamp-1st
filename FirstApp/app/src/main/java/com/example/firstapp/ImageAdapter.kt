@@ -10,8 +10,8 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
 
     private val dummyImages = intArrayOf(
         R.drawable.gallery_image_01,
-//        R.drawable.gallery_image_02,
-//        R.drawable.gallery_image_03,
+        R.drawable.gallery_image_02,
+        R.drawable.gallery_image_03,
 //        R.drawable.gallery_image_04,
 //        R.drawable.gallery_image_05,
 //        R.drawable.gallery_image_06,
