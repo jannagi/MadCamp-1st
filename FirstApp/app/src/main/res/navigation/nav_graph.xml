@@ -30,5 +30,5 @@
 
     <activity
         android:id="@+id/thirdActivity"
-        android:name="com.example.firstapp.ThirdPage" />
+        android:name="com.example.firstapp.CalendarPage" />
 </navigation>
