@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         // 각 버튼에 대한 클릭 이벤트 처리
         contactButton.setOnClickListener {
-            navigateToPage(ContactPage::class.java)
+            navigateToPage(ContactActivity::class.java)
         }
 
         galleryButton.setOnClickListener {
