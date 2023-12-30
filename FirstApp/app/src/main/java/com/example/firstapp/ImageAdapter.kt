@@ -1,6 +1,7 @@
 package com.example.firstapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -19,6 +20,16 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
         R.drawable.gallery_image_08,
         R.drawable.gallery_image_09,
         R.drawable.gallery_image_10,
+        R.drawable.gallery_image_11,
+        R.drawable.gallery_image_12,
+        R.drawable.gallery_image_13,
+        R.drawable.gallery_image_14,
+        R.drawable.gallery_image_15,
+        R.drawable.gallery_image_16,
+        R.drawable.gallery_image_17,
+        R.drawable.gallery_image_18,
+        R.drawable.gallery_image_19,
+        R.drawable.gallery_image_20,
 
         // Add more dummy image resource IDs as needed
     )
@@ -49,13 +60,21 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
             imageView = ImageView(context)
             imageView.layoutParams = ViewGroup.LayoutParams(targetImageSize, targetImageSize)
             imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
-            imageView.setPadding(8, 8, 8, 8) // Optional: Add padding for better spacing
+            imageView.setPadding(8, 8, 8, 8)
         } else {
             imageView = convertView as ImageView
         }
 
         // Load and set the image for the current position
-        imageView.setImageResource(dummyImages[position])
+        val imageResId = dummyImages[position]
+        imageView.setImageResource(imageResId)
+
+        // Handle item click to show larger view
+        imageView.setOnClickListener {
+            val intent = Intent(context, ImageDetailActivity::class.java)
+            intent.putExtra(ImageDetailActivity.EXTRA_IMAGE_RES_ID, imageResId)
+            context.startActivity(intent)
+        }
 
         return imageView
     }

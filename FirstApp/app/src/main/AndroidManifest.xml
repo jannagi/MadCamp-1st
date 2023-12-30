@@ -28,6 +28,7 @@
         <activity android:name=".CalendarPage"></activity>
         <activity android:name=".MemoActivity"></activity>
         <activity android:name=".CondetailActivity"></activity>
+        <activity android:name=".ImageDetailActivity"></activity>
     </application>
 
 </manifest>
