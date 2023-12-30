@@ -24,8 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactActivity"></activity>
-        <activity android:name=".GalleryPage"></activity>
-        <activity android:name=".CalendarPage"></activity>
+        <activity android:name=".GalleryActivity"></activity>
+        <activity android:name=".CalendarActivity"></activity>
         <activity android:name=".MemoActivity"></activity>
         <activity android:name=".CondetailActivity"></activity>
         <activity android:name=".ImageDetailActivity"></activity>

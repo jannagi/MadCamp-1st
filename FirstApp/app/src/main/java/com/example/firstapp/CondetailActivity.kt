@@ -52,5 +52,33 @@ class CondetailActivity : AppCompatActivity() {
             val intentMessage = Intent(Intent.ACTION_SENDTO, messageUri)
             startActivity(intentMessage)
         }
+
+        // bottom navigation
+        val bottomNavigationView = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.navigationBar)
+        bottomNavigationView.selectedItemId = R.id.menu_Contact
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_Contact -> {
+                    navigateToPage(ContactActivity::class.java)
+                    true
+                }
+                R.id.menu_Gallery -> {
+                    navigateToPage(GalleryActivity::class.java)
+                    true
+                }
+                R.id.menu_Calendar -> {
+                    navigateToPage(CalendarActivity::class.java)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun navigateToPage(cls: Class<*>) {
+        val intent = Intent(this, cls)
+        startActivity(intent)
+        finish()
     }
 }
