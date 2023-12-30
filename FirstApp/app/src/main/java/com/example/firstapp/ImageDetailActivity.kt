@@ -1,8 +1,8 @@
 package com.example.firstapp
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 
 class ImageDetailActivity : AppCompatActivity() {
 
@@ -10,17 +10,17 @@ class ImageDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_detail)
 
-        // Get the image resource ID from the intent
-        val imageResourceId = intent.getIntExtra(EXTRA_IMAGE_RES_ID, 0)
+        val imageAdapter = ImageAdapter(this)
+        val viewPager: ViewPager = findViewById(R.id.viewPager)
+        val imagePagerAdapter = ImagePagerAdapter(this, imageAdapter)
+        viewPager.adapter = imagePagerAdapter
 
-        // Find the ImageView in the layout
-        val imageViewDetail: ImageView = findViewById(R.id.imageViewDetail)
-
-        // Set the larger image in the ImageView
-        imageViewDetail.setImageResource(imageResourceId)
+        // Get the initial position from the intent
+        val initialPosition = intent.getIntExtra(EXTRA_POSITION, 0)
+        viewPager.currentItem = initialPosition
     }
 
     companion object {
-        const val EXTRA_IMAGE_RES_ID = "extra_image_res_id"
+        const val EXTRA_POSITION = "extra_position"
     }
 }
