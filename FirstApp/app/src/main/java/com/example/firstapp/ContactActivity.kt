@@ -82,6 +82,7 @@ class ContactActivity : AppCompatActivity(), ContactListAdapter.OnItemClickListe
 //            }
             adapter.serFilteredList(filteredList)
             findViewById<RecyclerView>(R.id.ContactList).adapter = adapter
+            adapter.onItemClickListener = this
         }
     }
 
