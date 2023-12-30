@@ -4,14 +4,12 @@ import ContactListAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
+import java.util.Locale
 
 class ContactActivity : AppCompatActivity(), ContactListAdapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +44,24 @@ class ContactActivity : AppCompatActivity(), ContactListAdapter.OnItemClickListe
         adapter.onItemClickListener = this
 
         findViewById<RecyclerView>(R.id.ContactList).adapter = adapter
+
+    // Search
+        val searchView = findViewById<SearchView>(R.id.contact_search)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText) {
+                    // 이 부분에서 어댑터에게 데이터가 변경되었음을 알려줌
+                    adapter.notifyDataSetChanged()
+                }
+                return true
+            }
+        })
+
 
     }
 
