@@ -1,5 +1,7 @@
 package com.example.firstapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -32,5 +34,23 @@ class CondetailActivity : AppCompatActivity() {
         organizationTextView.text = organization
         phoneTextView.text = phone
         emailTextView.text = email
+
+        // 전화걸기
+        val callButton = findViewById<ImageButton>(R.id.btnCall)
+        callButton.setOnClickListener {
+            val phoneNumber = phoneTextView.text.toString()
+            val callUri = Uri.parse("tel:${phoneNumber}")
+            val intentCall = Intent(Intent.ACTION_DIAL, callUri)
+            startActivity(intentCall)
+        }
+
+        // 메시지 작성
+        val messageButton = findViewById<ImageButton>(R.id.btnMessage)
+        messageButton.setOnClickListener {
+            val phoneNumber = phoneTextView.text.toString()
+            val messageUri = Uri.parse("smsto:${phoneNumber}")
+            val intentMessage = Intent(Intent.ACTION_SENDTO, messageUri)
+            startActivity(intentMessage)
+        }
     }
 }
