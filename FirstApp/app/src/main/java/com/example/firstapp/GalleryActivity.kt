@@ -4,9 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 
 class GalleryActivity : AppCompatActivity() {
+    private lateinit var imageAdapter: ImageAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
@@ -18,8 +21,17 @@ class GalleryActivity : AppCompatActivity() {
 
         // Initialize and set up your image gallery (GridView)
         val gridView: GridView = findViewById(R.id.gridView)
-        val imageAdapter = ImageAdapter(this)
+        imageAdapter = ImageAdapter(this)
         gridView.adapter = imageAdapter
+
+        val toggleButton: ToggleButton = findViewById(R.id.toggleButton)
+        toggleButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                imageAdapter.setScaleType(ImageView.ScaleType.CENTER_INSIDE)
+            } else {
+                imageAdapter.setScaleType(ImageView.ScaleType.CENTER_CROP)
+            }
+        }
 
         // bottom navigation
         val bottomNavigationView = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.navigationBar)

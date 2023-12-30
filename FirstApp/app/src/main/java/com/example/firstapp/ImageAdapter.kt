@@ -5,7 +5,10 @@ import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.ToggleButton
 import com.bumptech.glide.Glide
 
 class ImageAdapter(private val context: Context) : BaseAdapter() {
@@ -36,6 +39,8 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
     )
 
     private val targetImageSize: Int = calculateTargetImageSize(context)
+    private var scaleType: ImageView.ScaleType = ImageView.ScaleType.CENTER_CROP
+
 
     private fun calculateTargetImageSize(context: Context): Int {
         // Adjust this value based on the desired size of your images
@@ -60,17 +65,17 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
         if (convertView == null) {
             imageView = ImageView(context)
             imageView.layoutParams = ViewGroup.LayoutParams(targetImageSize, targetImageSize)
-            imageView.scaleType = ImageView.ScaleType.CENTER_CROP
             imageView.setPadding(8, 8, 8, 8)
         } else {
             imageView = convertView as ImageView
         }
 
+        imageView.scaleType = scaleType
+
         // Load and set the image for the current position using Glide
         val imageResId = dummyImages[position]
         Glide.with(context)
             .load(imageResId)
-            .centerCrop()
             .into(imageView)
 
         // Handle item click to show larger view
@@ -82,5 +87,10 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
         }
 
         return imageView
+    }
+
+    fun setScaleType(newScaleType: ImageView.ScaleType) {
+        scaleType = newScaleType
+        notifyDataSetChanged()
     }
 }
