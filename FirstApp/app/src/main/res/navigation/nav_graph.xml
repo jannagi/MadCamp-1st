@@ -26,9 +26,9 @@
 
     <activity
         android:id="@+id/galleryActivity"
-        android:name="com.example.firstapp.GalleryPage" />
+        android:name="com.example.firstapp.GalleryActivity" />
 
     <activity
         android:id="@+id/thirdActivity"
-        android:name="com.example.firstapp.CalendarPage" />
+        android:name="com.example.firstapp.CalendarActivity" />
 </navigation>

@@ -3,12 +3,7 @@ package com.example.firstapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.example.firstapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         galleryButton.setOnClickListener {
-            navigateToPage(GalleryPage::class.java)
+            navigateToPage(GalleryActivity::class.java)
         }
 
         thirdButton.setOnClickListener {
-            navigateToPage(CalendarPage::class.java)
+            navigateToPage(CalendarActivity::class.java)
         }
     }
 

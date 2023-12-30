@@ -13,7 +13,7 @@ class MemoActivity : AppCompatActivity() {
 
         val backButton = findViewById<Button>(R.id.icon_back)
         backButton.setOnClickListener {
-            navigateToPage(CalendarPage::class.java)
+            navigateToPage(CalendarActivity::class.java)
         }
 
         val saveButton = findViewById<Button>(R.id.button_save_memo)
