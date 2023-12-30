@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapp.ContactActivity
 import com.example.firstapp.ContactItem
@@ -11,12 +12,10 @@ import com.example.firstapp.R
 import java.util.Locale
 
 class ContactListAdapter(
-    val contactItemList: ArrayList<ContactItem>,
+    var contactItemList: ArrayList<ContactItem>,
     val inflater: LayoutInflater,
     val activity: ContactActivity
-) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>(), Filterable {
-
-    var filteredContactItemList: ArrayList<ContactItem> = contactItemList
+) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>(){
 
     interface OnItemClickListener {
         fun onItemClick(contactItem: ContactItem)
@@ -44,6 +43,16 @@ class ContactListAdapter(
         }
     }
 
+    fun serFilteredList(filteredContactItemList: ArrayList<ContactItem>) {
+        this.contactItemList = filteredContactItemList
+        notifyDataSetChanged()
+
+//        // debug log
+//        for (item in contactItemList) {
+//            println(item.Name)
+//        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = inflater.inflate(R.layout.contact_list_item, parent, false)
         return ViewHolder(view)
@@ -58,33 +67,5 @@ class ContactListAdapter(
 
     override fun getItemCount(): Int {
         return contactItemList.size
-    }
-
-    override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val charString = constraint.toString()
-                filteredContactItemList = if (charString.isEmpty()) {
-                    contactItemList
-                } else {
-                    val filteredList = ArrayList<ContactItem>()
-                    for (contactItem in contactItemList) {
-                        if (contactItem.Name.toLowerCase().contains(charString.toLowerCase())) {
-                            filteredList.add(contactItem)
-                        }
-                    }
-                    filteredList
-                }
-
-                val filterResults = FilterResults()
-                filterResults.values = filteredContactItemList
-                return filterResults
-            }
-
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filteredContactItemList = results?.values as ArrayList<ContactItem>
-                notifyDataSetChanged()
-            }
-        }
     }
 }
