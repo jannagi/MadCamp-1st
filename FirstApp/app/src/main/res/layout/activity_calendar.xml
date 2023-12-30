@@ -3,7 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/calendar_head"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/head_box3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageButton
         android:id="@+id/icon_back"
@@ -17,6 +27,20 @@
         android:background="@drawable/bg_white_ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/calendarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendar"
+        android:textAppearance="@style/title2_"
+        android:lineSpacingExtra="-1sp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="60dp"
+        />
 
 <!--    <com.prolificinteractive.materialcalendarview.MaterialCalendarView-->
 <!--        android:id="@+id/calendarView"-->
