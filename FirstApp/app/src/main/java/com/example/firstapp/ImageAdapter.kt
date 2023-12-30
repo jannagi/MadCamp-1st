@@ -71,8 +71,9 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
 
         // Handle item click to show larger view
         imageView.setOnClickListener {
+            // Pass both imageResId and position to ImageDetailActivity
             val intent = Intent(context, ImageDetailActivity::class.java)
-            intent.putExtra(ImageDetailActivity.EXTRA_IMAGE_RES_ID, imageResId)
+            intent.putExtra(ImageDetailActivity.EXTRA_POSITION, position)
             context.startActivity(intent)
         }
 
