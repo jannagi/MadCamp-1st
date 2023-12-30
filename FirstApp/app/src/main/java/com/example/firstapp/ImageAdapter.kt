@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 
 class ImageAdapter(private val context: Context) : BaseAdapter() {
 
@@ -39,7 +40,7 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
     private fun calculateTargetImageSize(context: Context): Int {
         // Adjust this value based on the desired size of your images
         val density = context.resources.displayMetrics.density
-        return (100 * density).toInt() // 100dp as an example, adjust as needed
+        return (120 * density).toInt() // 100dp as an example, adjust as needed
     }
 
     override fun getCount(): Int {
@@ -59,15 +60,18 @@ class ImageAdapter(private val context: Context) : BaseAdapter() {
         if (convertView == null) {
             imageView = ImageView(context)
             imageView.layoutParams = ViewGroup.LayoutParams(targetImageSize, targetImageSize)
-            imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            imageView.scaleType = ImageView.ScaleType.CENTER_CROP
             imageView.setPadding(8, 8, 8, 8)
         } else {
             imageView = convertView as ImageView
         }
 
-        // Load and set the image for the current position
+        // Load and set the image for the current position using Glide
         val imageResId = dummyImages[position]
-        imageView.setImageResource(imageResId)
+        Glide.with(context)
+            .load(imageResId)
+            .centerCrop()
+            .into(imageView)
 
         // Handle item click to show larger view
         imageView.setOnClickListener {
