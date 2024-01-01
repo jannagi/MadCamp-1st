@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.PagerAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -26,7 +25,6 @@ class ImagePagerAdapter(private val context: Context, private val imageAdapter: 
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
         imageView.setOnClickListener {
-            // Display the text dialog
             showBottomSheetDialog(context, position)
         }
 
